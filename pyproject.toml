@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "python-project-skeleton"
+name = "yaml-searcher"
 version = "0.1.0"
 description = ""
 authors = ["mgla96 <mattgottlieb96@gmail.com>"]

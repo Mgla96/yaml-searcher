@@ -1,9 +1,9 @@
 
 
-PROJECT_NAME := python-project-skeleton
+PROJECT_NAME := yaml-searcher
 
 CONTAINER_REGISTRY := localhost:8080
-IMAGE_NAME := project-skeleton-image
+IMAGE_NAME := yaml-searcher
 IMAGE_TAG := 0.1.0
 
 .PHONY: install
