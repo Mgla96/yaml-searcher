@@ -1,6 +1,6 @@
-from yaml import safe_load, dump, YAMLError
+from yaml import error, safe_load, dump, YAMLError
 from sys import stdin, argv, stderr
-
+import os
 
 def dictionary_search(d, val):
     split_val = val.split(".")
@@ -21,8 +21,16 @@ def dictionary_search_iter(d, val):
             return None
     return d
 
+def check_empty_stdin():
+    if os.isatty(stdin.fileno()):
+        print("empty stdin", file=stderr)
+        return True
+    return False
+    
 
 def main(search_val):
+    if check_empty_stdin():
+        return None
 
     try:
         yaml_input = safe_load(stdin)
