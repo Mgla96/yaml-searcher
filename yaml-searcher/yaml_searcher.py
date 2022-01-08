@@ -12,6 +12,16 @@ def dictionary_search(d, val):
     return dictionary_search(d.get(split_val[0]), ".".join(split_val[1:]))
 
 
+def dictionary_search_iter(d, val):
+    split_val = val.split(".")
+
+    for key in split_val:
+        d = d.get(key)
+        if d is None:
+            return None
+    return d
+
+
 def main(search_val):
 
     try:
@@ -19,7 +29,7 @@ def main(search_val):
     except YAMLError as err:
         print(err, file=stderr)
 
-    yaml_output = dictionary_search(d=yaml_input, val=search_val)
+    yaml_output = dictionary_search_iter(d=yaml_input, val=search_val)
     print(dump(yaml_output))
 
 
