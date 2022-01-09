@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "yaml-searcher"
+name = "yamlsearcher"
 version = "0.1.0"
 description = ""
 authors = ["mgla96 <mattgottlieb96@gmail.com>"]

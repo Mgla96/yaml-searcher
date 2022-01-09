@@ -1,18 +1,9 @@
-from yaml import error, safe_load, dump, YAMLError
+from yaml import safe_load, dump, YAMLError
 from sys import stdin, argv, stderr
 import os
 
+
 def dictionary_search(d, val):
-    split_val = val.split(".")
-    if d is None:
-        return None
-    if len(val.split(".")) == 1:
-        return d.get(split_val[0])
-
-    return dictionary_search(d.get(split_val[0]), ".".join(split_val[1:]))
-
-
-def dictionary_search_iter(d, val):
     split_val = val.split(".")
 
     for key in split_val:
@@ -21,12 +12,13 @@ def dictionary_search_iter(d, val):
             return None
     return d
 
+
 def check_empty_stdin():
     if os.isatty(stdin.fileno()):
         print("empty stdin", file=stderr)
         return True
     return False
-    
+
 
 def main(search_val):
     if check_empty_stdin():
@@ -37,7 +29,7 @@ def main(search_val):
     except YAMLError as err:
         print(err, file=stderr)
 
-    yaml_output = dictionary_search_iter(d=yaml_input, val=search_val)
+    yaml_output = dictionary_search(d=yaml_input, val=search_val)
     print(dump(yaml_output))
 
 
