@@ -25,7 +25,7 @@ def main():
         print("supply a value to search for", file=stderr)
         return
 
-    search_val=argv[1]
+    search_val = argv[1]
     if check_empty_stdin():
         return None
 
@@ -40,4 +40,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
