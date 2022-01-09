@@ -25,5 +25,3 @@ cat yaml-file.yaml | ./yaml-searcher hello.world
 
 Both will return `output`
 
-
-## Installation
