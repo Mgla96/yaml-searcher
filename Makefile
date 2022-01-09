@@ -1,6 +1,4 @@
-
-
-PROJECT_NAME := yaml-searcher
+PROJECT_NAME := yamlsearcher
 
 CONTAINER_REGISTRY := localhost:8080
 IMAGE_NAME := yaml-searcher
@@ -33,3 +31,7 @@ build:
 .PHONY: push
 push:
 	docker push ${CONTAINER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
+
+.PHONY: shiv
+shiv:
+	shiv . -e yamlsearcher.yaml_searcher:main -o yaml-searcher
