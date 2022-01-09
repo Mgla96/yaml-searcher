@@ -34,6 +34,8 @@ def load_yaml(input):
     except YAMLError as err:
         print(err, file=stderr)
         return
+    if type(yaml_input) != dict:
+        return
     return yaml_input
 
 
