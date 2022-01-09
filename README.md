@@ -25,3 +25,18 @@ cat yaml-file.yaml | ./yaml-searcher hello.world
 
 Both will return `output`
 
+## Installation
+
+1. Download yaml-searcher
+
+    ```bash
+    curl -L https://github.com/mgla96/yaml-searcher/releases/download/v0.1.0/yaml-searcher > yaml-searcher
+    ```
+
+2. Add execution permissions
+
+    ```bash
+    chmod +x yaml-searcher
+    ```
+
+3. Place in executable PATH or call directly
