@@ -11,14 +11,14 @@ def check_search_val(arg_arr):
     return arg_arr[1]
 
 
-def dictionary_search(d, val):
+def dictionary_search(yaml_dict, val):
     split_val = val.split(".")
 
     for key in split_val:
-        d = d.get(key)
-        if d is None:
+        yaml_dict = yaml_dict.get(key)
+        if yaml_dict is None:
             return
-    return d
+    return yaml_dict
 
 
 def check_empty_stdin():
@@ -52,7 +52,7 @@ def main():
     if yaml_input is None:
         return
 
-    yaml_output = dictionary_search(d=yaml_input, val=search_val)
+    yaml_output = dictionary_search(yaml_dict=yaml_input, val=search_val)
     if yaml_output is None:
         return
 
