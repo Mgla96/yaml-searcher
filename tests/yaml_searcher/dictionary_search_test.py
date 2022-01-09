@@ -22,6 +22,7 @@ def test_dictionary_search_success_key():
     # assert
     assert actual == expected
 
+
 def test_dictionary_search_failure_no_key():
     # arrange
     key = "hello"
