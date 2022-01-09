@@ -10,7 +10,7 @@ def test_dictionary_search_success_none():
     assert actual == expected
 
 
-def test_dictionary_search_success_val():
+def test_dictionary_search_success_key():
     # arrange
     key = "hello"
     expected = "world"
@@ -18,6 +18,18 @@ def test_dictionary_search_success_val():
 
     # act
     actual = dictionary_search(d, "hello")
+
+    # assert
+    assert actual == expected
+
+def test_dictionary_search_failure_no_key():
+    # arrange
+    key = "hello"
+    expected = None
+    d = {key: "world"}
+
+    # act
+    actual = dictionary_search(d, "other")
 
     # assert
     assert actual == expected
