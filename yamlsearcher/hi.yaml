@@ -1,5 +1,0 @@
-image:
-  name: "hello"
-  tag: "latest"
-  pullPolicy: "IfNotPresent"
-speed: 6
