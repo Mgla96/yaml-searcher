@@ -6,7 +6,7 @@ from yaml import safe_load, dump, YAMLError
 def check_search_val(arg_arr):
     if len(arg_arr) <= 1:
         print("supply a value to search for", file=stderr)
-        return
+        return None
 
     return arg_arr[1]
 
@@ -17,7 +17,7 @@ def dictionary_search(yaml_dict, val):
     for key in split_val:
         yaml_dict = yaml_dict.get(key)
         if yaml_dict is None:
-            return
+            return None
     return yaml_dict
 
 
@@ -33,9 +33,9 @@ def load_yaml(input):
         yaml_input = safe_load(input)
     except YAMLError as err:
         print(err, file=stderr)
-        return
+        return None
     if not isinstance(yaml_input, dict):
-        return
+        return None
     return yaml_input
 
 
