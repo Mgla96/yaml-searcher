@@ -1,7 +1,7 @@
 from yamlsearcher.yaml_searcher import load_yaml
 
 
-def test_dictionary_search_success():
+def test_load_yaml_success():
     # arrange
     input = """
     hello: world
@@ -13,7 +13,7 @@ def test_dictionary_search_success():
     assert actual == expected
 
 
-def test_dictionary_search_nested_success():
+def test_load_yaml_nested_success():
     # arrange
     input = """
     hello: 
@@ -27,7 +27,7 @@ def test_dictionary_search_nested_success():
     assert actual == expected
 
 
-def test_dictionary_search_arr_success():
+def test_load_yaml_arr_success():
     # arrange
     input = """
     hello: 
@@ -41,7 +41,7 @@ def test_dictionary_search_arr_success():
     assert actual == expected
 
 
-def test_dictionary_search_empty_val_success():
+def test_load_yaml_empty_val_success():
     # arrange
     input = """
     hello: 
@@ -53,4 +53,11 @@ def test_dictionary_search_empty_val_success():
     assert actual == expected
 
 
-# TODO: add tests for catching errors
+def test_load_yaml_invalid_dict_failure():
+    # arrange
+    input = "hello"
+    expected = None
+    # act
+    actual = load_yaml(input)
+    # assert
+    assert actual == expected
