@@ -51,8 +51,11 @@ def main():
         return
 
     yaml_output = dictionary_search(d=yaml_input, val=search_val)
-    yaml_dump = dump(yaml_output)
-    print(yaml_dump)
+   
+    if type(yaml_output)==dict:
+        yaml_output = dump(yaml_output)
+    
+    print(yaml_output)
 
 
 if __name__ == "__main__":
