@@ -28,9 +28,9 @@ def check_empty_stdin():
     return False
 
 
-def load_yaml(input):
+def load_yaml(stdin_input):
     try:
-        yaml_input = safe_load(input)
+        yaml_input = safe_load(stdin_input)
     except YAMLError as err:
         print(err, file=stderr)
         return None
