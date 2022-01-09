@@ -20,7 +20,12 @@ def check_empty_stdin():
     return False
 
 
-def main(search_val):
+def main():
+    if len(argv) <= 1:
+        print("supply a value to search for", file=stderr)
+        return
+
+    search_val=argv[1]
     if check_empty_stdin():
         return None
 
@@ -34,8 +39,5 @@ def main(search_val):
 
 
 if __name__ == "__main__":
-    if len(argv) > 1:
-        # print(argv[1])
-        main(search_val=argv[1])
-    else:
-        print("supply a value to search for", file=stderr)
+    main()
+    

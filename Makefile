@@ -33,5 +33,5 @@ push:
 	docker push ${CONTAINER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}
 
 .PHONY: shiv
-shiv: #TODO
-	shiv . -e yamlsearcher/yaml_searcher:main -o yamlsearcher.pyz
+shiv:
+	shiv . -e yamlsearcher.yaml_searcher:main -o yaml-searcher
