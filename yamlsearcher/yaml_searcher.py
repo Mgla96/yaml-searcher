@@ -1,6 +1,6 @@
-from yaml import safe_load, dump, YAMLError
-from sys import stdin, argv, stderr
 import os
+from sys import stdin, argv, stderr
+from yaml import safe_load, dump, YAMLError
 
 
 def check_search_val(arg_arr):
