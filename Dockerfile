@@ -1,18 +1,19 @@
 FROM python:3.9-slim AS base-stage
 
-COPY pyproject.toml poetry.lock yaml-searcher/
+COPY pyproject.toml poetry.lock yamlsearcher/
 
-WORKDIR /yaml-searcher
+WORKDIR /yamlsearcher
 
 RUN python -m pip install poetry && \
     poetry config virtualenvs.in-project true && \
     poetry install --no-dev
 
 FROM python:3.9-slim
-COPY --from=base-stage /yaml-searcher/ /yaml-searcher/
+COPY --from=base-stage /yamlsearcher/ /yamlsearcher/
+COPY . /yamlsearcher
 
-WORKDIR /yaml-searcher
+WORKDIR /yamlsearcher
 
-ENV PATH="/yaml-searcher/.venv/bin:$PATH"
+ENV PATH="/yamlsearcher/.venv/bin:$PATH"
 
 CMD ["echo", "hello"]
