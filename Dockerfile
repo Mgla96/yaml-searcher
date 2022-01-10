@@ -16,4 +16,3 @@ WORKDIR /yamlsearcher
 
 ENV PATH="/yamlsearcher/.venv/bin:$PATH"
 
-CMD ["echo", "hello"]
