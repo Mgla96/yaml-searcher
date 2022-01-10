@@ -112,7 +112,7 @@ def main():
     if yaml_output is None:
         return
 
-    if not isinstance(yaml_output, dict):
+    if isinstance(yaml_output, dict):
         yaml_output = dump(yaml_output)
 
     print(yaml_output)
