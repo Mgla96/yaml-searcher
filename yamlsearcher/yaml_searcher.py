@@ -4,9 +4,10 @@ This file handles searching through yaml from stdin for a specific value
 import os
 from sys import stdin, argv, stderr
 from yaml import safe_load, dump, YAMLError
+from typing import List
 
 
-def check_search_arg(arg_arr: list[str]) -> str:
+def check_search_arg(arg_arr: List[str]) -> str:
     """
 
     Checks whether arguments were passed to command line
