@@ -7,8 +7,10 @@ def test_load_yaml_success():
     hello: world
     """
     expected = {"hello": "world"}
+
     # act
     actual = load_yaml(input)
+
     # assert
     assert actual == expected
 
@@ -21,8 +23,10 @@ def test_load_yaml_nested_success():
         hi: world
     """
     expected = {"hello": {"hi": {"hi": "world"}}}
+
     # act
     actual = load_yaml(input)
+
     # assert
     assert actual == expected
 
@@ -35,8 +39,10 @@ def test_load_yaml_arr_success():
         dog: cat
     """
     expected = {"hello": [{"dog": "cat", "hi": "there"}]}
+
     # act
     actual = load_yaml(input)
+
     # assert
     assert actual == expected
 
@@ -47,8 +53,10 @@ def test_load_yaml_empty_val_success():
     hello: 
     """
     expected = {"hello": None}
+
     # act
     actual = load_yaml(input)
+
     # assert
     assert actual == expected
 
@@ -57,7 +65,9 @@ def test_load_yaml_invalid_dict_failure():
     # arrange
     input = "hello"
     expected = None
+
     # act
     actual = load_yaml(input)
+
     # assert
     assert actual == expected
