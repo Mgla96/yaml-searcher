@@ -4,8 +4,10 @@ from yamlsearcher.yaml_searcher import dict_search
 def test_dict_search_success_none():
     # arrange
     expected = None
+
     # act
     actual = dict_search({}, "hi")
+
     # assert
     assert actual == expected
 

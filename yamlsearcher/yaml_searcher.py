@@ -3,8 +3,8 @@ This file handles searching through yaml from stdin for a specific value
 """
 import os
 from sys import stdin, argv, stderr
-from yaml import safe_load, dump, YAMLError
 from typing import List
+from yaml import safe_load, dump, YAMLError
 
 
 def check_search_arg(arg_arr: List[str]) -> str:
@@ -94,6 +94,14 @@ def load_yaml(stdin_input: str) -> dict:
     return yaml_input
 
 
+def format_output(yaml_output):
+    """Formats python object to yaml document output format"""
+    if isinstance(yaml_output, str):
+        return yaml_output
+
+    return dump(yaml_output)
+
+
 def main():
     """Prints value if it exists from yaml provided on stdin"""
 
@@ -113,10 +121,7 @@ def main():
     if yaml_output is None:
         return
 
-    if isinstance(yaml_output, dict):
-        yaml_output = dump(yaml_output)
-
-    print(yaml_output)
+    print(format_output(yaml_output))
 
 
 if __name__ == "__main__":
