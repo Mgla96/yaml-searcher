@@ -30,7 +30,7 @@ Both will return `output`
 1. Download yaml-searcher
 
     ```bash
-    curl -L https://github.com/mgla96/yaml-searcher/releases/download/v0.1.2/yaml-searcher > yaml-searcher
+    curl -L https://github.com/mgla96/yaml-searcher/releases/download/v0.1.3/yaml-searcher > yaml-searcher
     ```
 
 2. Add execution permissions

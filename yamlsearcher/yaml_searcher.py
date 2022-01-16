@@ -3,11 +3,11 @@ This file handles searching through yaml from stdin for a specific value
 """
 import os
 from sys import stdin, argv, stderr
-from typing import List
+from typing import List, Union, Optional, Any
 from yaml import safe_load, dump, YAMLError
 
 
-def check_search_arg(arg_arr: List[str]) -> str:
+def check_search_arg(arg_arr: List[str]) -> Optional[str]:
     """
 
     Checks whether arguments were passed to command line
@@ -30,8 +30,8 @@ def check_search_arg(arg_arr: List[str]) -> str:
     return str(arg_arr[1])
 
 
-def check_search_index(val: str):
-    """Checks whether an argument contains an index value in array to search for"""
+def check_search_index(val: str) -> Union[tuple[str, None], tuple[str, int]]:
+    """Checks whether an arg contains an index value in array to search for"""
     try:
         res = val.split("[")
         if len(res) == 1:
@@ -44,7 +44,7 @@ def check_search_index(val: str):
     raise Exception("failed validating search argument")
 
 
-def dict_search(yaml_dict: dict, search_field: str) -> dict:
+def dict_search(yaml_dict: dict, search_field: str) -> Optional[Any]:
     """Searches through dictionary for the value of a specific field
 
     Parameters
@@ -61,18 +61,23 @@ def dict_search(yaml_dict: dict, search_field: str) -> dict:
 
     """
     split_fields = search_field.split(".")
+    yaml_data: Optional[Any] = yaml_dict
 
     for key in split_fields:
         key, idx = check_search_index(key)
 
-        yaml_dict = yaml_dict.get(key)
-        if yaml_dict is None:
+        if not isinstance(yaml_data, dict):
+            return None
+
+        yaml_data = yaml_data.get(key)
+
+        if idx is not None and not isinstance(yaml_data, list):
             return None
 
         if idx is not None:
-            yaml_dict = yaml_dict[idx]
+            yaml_data = yaml_data[idx]  # type: ignore
 
-    return yaml_dict
+    return yaml_data
 
 
 def check_empty_stdin() -> bool:
@@ -90,7 +95,7 @@ def check_empty_stdin() -> bool:
     return False
 
 
-def load_yaml(stdin_input: str) -> dict:
+def load_yaml(stdin_input: str) -> Optional[dict]:
     """Loads yaml into dictionary
 
     Parameters

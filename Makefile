@@ -20,6 +20,10 @@ lint:
 pylint:
 	poetry run pylint ${PROJECT_NAME}
 
+.PHONY: typecheck
+typecheck:
+	poetry run mypy ${PROJECT_NAME}
+
 .PHONY: unittest
 unittest:
 	poetry run pytest
