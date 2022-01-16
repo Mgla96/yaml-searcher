@@ -30,7 +30,8 @@ def check_search_arg(arg_arr: List[str]) -> str:
     return str(arg_arr[1])
 
 
-def check_searching_index(val):
+def check_search_index(val: str):
+    """Checks whether an argument contains an index value in array to search for"""
     try:
         res = val.split("[")
         if len(res) == 1:
@@ -62,7 +63,7 @@ def dict_search(yaml_dict: dict, search_field: str) -> dict:
     split_fields = search_field.split(".")
 
     for key in split_fields:
-        key, idx = check_searching_index(key)
+        key, idx = check_search_index(key)
 
         yaml_dict = yaml_dict.get(key)
         if yaml_dict is None:

@@ -30,7 +30,7 @@ Both will return `output`
 1. Download yaml-searcher
 
     ```bash
-    curl -L https://github.com/mgla96/yaml-searcher/releases/download/v0.1.1/yaml-searcher > yaml-searcher
+    curl -L https://github.com/mgla96/yaml-searcher/releases/download/v0.1.2/yaml-searcher > yaml-searcher
     ```
 
 2. Add execution permissions
@@ -41,7 +41,7 @@ Both will return `output`
 
 3. Place in executable PATH or call directly
 
-## Notes / Gotcha's
+## Notes / Gotchas
 
 * zsh uses square brackets for globbing/pattern matching
 
