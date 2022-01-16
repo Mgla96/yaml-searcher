@@ -33,10 +33,10 @@ jobs:
       run: |
         python -m pip install poetry && \
         poetry install
-    - name: Analysing the code with flake8 lint
+    - name: Analyzing the code with flake8 lint
       run: |
         make lint
-    - name: Analysing the code with pylint
+    - name: Analyzing the code with pylint
       run: |
         make pylint
     - name: Type checking with mypy
