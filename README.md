@@ -40,3 +40,28 @@ Both will return `output`
     ```
 
 3. Place in executable PATH or call directly
+
+## Notes / Gotcha's
+
+* zsh uses square brackets for globbing/pattern matching
+
+  when passing square brackets in search argument for yaml-searcher, you must either escape them or quote argument
+
+  **yaml-file.yaml**
+  ```yaml
+  hello:
+    - world: "output"
+    - world: "output2"
+  ```
+
+  **command**
+  ```bash
+  ./yaml-searcher 'hello[0]' < yaml-file.yaml
+  ```
+  ```bash
+  ./yaml-searcher hello\[0\] < yaml-file.yaml
+  ```
+  **returns**
+  ```bash
+  world: output
+  ```

@@ -40,7 +40,7 @@ def check_searching_index(val):
     except Exception as err:
         raise err
 
-    raise Exception("add better exception name")  # TODO: better name
+    raise Exception("failed validating search argument")
 
 
 def dict_search(yaml_dict: dict, search_field: str) -> dict:
