@@ -3,7 +3,7 @@ This file handles searching through yaml from stdin for a specific value
 """
 import os
 from sys import stdin, argv, stderr
-from typing import List, Union, Optional, Any
+from typing import List, Tuple, Union, Optional, Any
 from yaml import safe_load, dump, YAMLError
 
 
@@ -30,7 +30,7 @@ def check_search_arg(arg_arr: List[str]) -> Optional[str]:
     return str(arg_arr[1])
 
 
-def check_search_index(val: str) -> Union[tuple[str, None], tuple[str, int]]:
+def check_search_index(val: str) -> Union[Tuple[str, None], Tuple[str, int]]:
     """Checks whether an arg contains an index value in array to search for"""
     try:
         res = val.split("[")
