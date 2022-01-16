@@ -27,7 +27,20 @@ def check_search_arg(arg_arr: List[str]) -> str:
         print("supply a value to search for", file=stderr)
         return None
 
-    return arg_arr[1]
+    return str(arg_arr[1])
+
+
+def check_searching_index(val):
+    try:
+        res = val.split("[")
+        if len(res) == 1:
+            return res[0], None
+        if len(res) == 2:
+            return res[0], int(res[1].strip("]"))
+    except Exception as err:
+        raise err
+
+    raise Exception("add better exception name")  # TODO: better name
 
 
 def dict_search(yaml_dict: dict, search_field: str) -> dict:
@@ -49,9 +62,15 @@ def dict_search(yaml_dict: dict, search_field: str) -> dict:
     split_fields = search_field.split(".")
 
     for key in split_fields:
+        key, idx = check_searching_index(key)
+
         yaml_dict = yaml_dict.get(key)
         if yaml_dict is None:
             return None
+
+        if idx is not None:
+            yaml_dict = yaml_dict[idx]
+
     return yaml_dict
 
 
