@@ -2,7 +2,7 @@ PROJECT_NAME := yamlsearcher
 
 CONTAINER_REGISTRY := localhost:8080
 IMAGE_NAME := yaml-searcher
-IMAGE_TAG := 0.1.0
+IMAGE_TAG := 0.1.4
 
 .PHONY: install
 install:
