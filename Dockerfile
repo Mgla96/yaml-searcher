@@ -9,7 +9,7 @@ RUN python -m pip install poetry && \
     poetry install --no-dev
 
 FROM python:3.9-slim
-COPY --from=base-stage /yamlsearcher/ /yamlsearcher/
+COPY --from=base-stage /yamlsearcher/.venv /yamlsearcher/.venv
 COPY . /yamlsearcher
 
 WORKDIR /yamlsearcher
