@@ -122,7 +122,7 @@ def load_yaml(stdin_input: str) -> Optional[dict]:
 def format_output(yaml_output):
     """Formats python object to yaml document output format"""
     if isinstance(yaml_output, (dict, list)):
-        return dump(yaml_output)
+        return dump(yaml_output).rstrip()
 
     return yaml_output
 

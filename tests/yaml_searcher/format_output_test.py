@@ -15,7 +15,7 @@ def test_format_output_str_success():
 def test_format_output_dict_success():
     # arrange
     input = {"hello": "world"}
-    expected = "hello: world\n"
+    expected = "hello: world"
 
     # act
     actual = format_output(input)
@@ -27,7 +27,7 @@ def test_format_output_dict_success():
 def test_format_output_arr_success():
     # arrange
     input = ["hello", "world"]
-    expected = "- hello\n- world\n"
+    expected = "- hello\n- world"
 
     # act
     actual = format_output(input)
